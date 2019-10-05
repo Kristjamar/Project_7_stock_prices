@@ -1,4 +1,5 @@
 def get_file():
+
     filename = input("Enter filename: ")
     try:
         openfile = open(filename, "r")
@@ -8,19 +9,28 @@ def get_file():
 
 def get_data_list(data_file):
 
-    data_list = [ ]	    # start with an empty list for line_str in data_file:
+    data_list = [ ]         # start with an empty list for line_str in data_file:
     for line_str in data_file:
         # strip end-of-line, split on commas, and append items to
         data_list.append(line_str.strip().split(','))
     return data_list
 
+def get_monthly_averages(data_list):
+			
+			return None
+			
+
 def main():
 
     openfile = get_file()
     if openfile:
-        
-        newlist = get_data_list(openfile)
 
+        newlist = get_data_list(openfile)
+        
+        newer_list = get_monthly_averages(newlist)
+
+        
         print(newlist)
         
 main()
+

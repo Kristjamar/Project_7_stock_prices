@@ -1,0 +1,5 @@
+Var að spá hvort hægt væri að fara yfir listann og þegar farið er yfir "date" stakið þá er skoðað hvaða dagsetning er.
+Semsagt við erum með breytu eða einhverja skilgreiningu á dagsetningu sem er eins og hún kemur fram í csv fælnum, "YYYY-MM-DD"
+Fyrsta dagsetning sem er lesin mun fara inní þetta format.
+Við vitum að við erum að gera reikna meðaltal á "mánuði" og eina sem við þurfum að fylgjast með er "MM" í þessari dagsetningu og um leið og hún breytist í 10 í 11 þá vitum við að það er kominn nýr mánuður og það þarf að reikna núna út meðaltalið og byrja uppá nýtt á næsta mánuði.
+Með þessu þá mega allar mögulegar dagsetningar koma þarna inn eins lengur og þær eru á þessu formatti "YYYY-MM-DD", eða við breytum formattinu til að vera eins og er í fælinum. 
