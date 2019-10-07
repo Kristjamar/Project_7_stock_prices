@@ -3,6 +3,7 @@ AdjC = 5
 Vol = 6
 
 def get_file():
+		''' Returns a file stream, else prints an error message '''
     filename = input("Enter filename: ")
     try:
         openfile = open(filename, "r")
@@ -12,6 +13,7 @@ def get_file():
 
 
 def get_data_list(data_file):
+		''' Gets the file stream and makes a list '''
     data_list = [ ]	    # start with an empty list for line_str in data_file:
     for line_str in data_file:
         # strip end-of-line, split on commas, and append items to
@@ -20,6 +22,7 @@ def get_data_list(data_file):
 
 
 def get_monthly_averages(x):
+		''' Calcutales the monthly averages '''
     count = 1
     averagelist = []
     while True:
@@ -52,41 +55,45 @@ def get_monthly_averages(x):
 
 
 def get_max(x):
-	count = 0
+	''' Calculates the highest price for the entire file '''
+	count = 0 #Constans and list to work with
 	max = 0
 	adj_close = []
 	date = []
 	highest_list = []
 	the_date = ""
 	
-	for line in x:
+	for line in x: #going over the file stream and making two lists for adj close and  date
 		adj_close.append(line[AdjC])  
 		date.append(line[Month])
 	date.remove(date[Month]) 
 	adj_close.remove(adj_close[Month])
-	float_adj_close = [float(i) for i in adj_close]
+	float_adj_close = [float(i) for i in adj_close] 
 	for i in float_adj_close:
 		if i > max:
-			max = i
+			max = i # finding the max price
 			the_date = date[count]
 		count += 1	
 	
 	highest_list.append(the_date)
 	highest_list.append(max)
-	return highest_list
+	return highest_list # Making a list with the date and price
 
 
 def print_average(averagelist):
+		''' Prints the averages with formatting '''
     print("{:<10s}{:>7s}".format("Month", "Price"))
     for i in range(0,len(averagelist),2):
         print('{:<10s}{:>7.2f}'.format(averagelist[i], round(averagelist[i+1], 2)))
 
 
 def print_highest(highest_list):
+	''' Prints the highest price and date with formatting '''
 	print("Highest price {:.2f} on day {}".format(round(float(highest_list[1]),2), highest_list[0]))
 
 
 def main():
+	''' Main program starts here ''' 
     openfile = get_file()
     if openfile:
         
