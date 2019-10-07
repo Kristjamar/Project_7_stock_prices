@@ -3,7 +3,7 @@ AdjC = 5
 Vol = 6
 
 def get_file():
-		''' Returns a file stream, else prints an error message '''
+    ''' Returns a file stream, else prints an error message '''
     filename = input("Enter filename: ")
     try:
         openfile = open(filename, "r")
@@ -13,7 +13,7 @@ def get_file():
 
 
 def get_data_list(data_file):
-		''' Gets the file stream and makes a list '''
+    ''' Gets the file stream and makes a list '''
     data_list = [ ]	    # start with an empty list for line_str in data_file:
     for line_str in data_file:
         # strip end-of-line, split on commas, and append items to
@@ -22,7 +22,7 @@ def get_data_list(data_file):
 
 
 def get_monthly_averages(x):
-		''' Calcutales the monthly averages '''
+    ''' Calcutales the monthly averages '''
     count = 1
     averagelist = []
     while True:
@@ -55,24 +55,24 @@ def get_monthly_averages(x):
 
 
 def get_max(x):
-		''' Calculates the highest price for the entire file '''
-		count = 0 #Constans and list to work with
-		max = 0
-		adj_close = []
-		date = []
-		highest_list = []
-		the_date = ""
+    ''' Calculates the highest price for the entire file '''
+    count = 0 #Constans and list to work with
+    max = 0
+    adj_close = []
+    date = []
+    highest_list = []
+    the_date = ""
 	
-		for line in x: #going over the file stream and making two lists for adj close and  date
-				adj_close.append(line[AdjC])  
-				date.append(line[Month])
-		date.remove(date[Month]) 
-		adj_close.remove(adj_close[Month])
-		float_adj_close = [float(i) for i in adj_close] 
-		for i in float_adj_close:
-				if i > max:
-				max = i # finding the max price
-				the_date = date[count]
+    for line in x: #going over the file stream and making two lists for adj close and  date
+        adj_close.append(line[AdjC])  
+        date.append(line[Month])
+    date.remove(date[Month]) 
+    adj_close.remove(adj_close[Month])
+    float_adj_close = [float(i) for i in adj_close] 
+    for i in float_adj_close:
+        if i > max:
+        max = i # finding the max price
+        the_date = date[count]
 		count += 1	
 	
 		highest_list.append(the_date)
