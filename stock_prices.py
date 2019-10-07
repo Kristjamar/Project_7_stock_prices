@@ -55,29 +55,29 @@ def get_monthly_averages(x):
 
 
 def get_max(x):
-	''' Calculates the highest price for the entire file '''
-	count = 0 #Constans and list to work with
-	max = 0
-	adj_close = []
-	date = []
-	highest_list = []
-	the_date = ""
+		''' Calculates the highest price for the entire file '''
+		count = 0 #Constans and list to work with
+		max = 0
+		adj_close = []
+		date = []
+		highest_list = []
+		the_date = ""
 	
-	for line in x: #going over the file stream and making two lists for adj close and  date
-		adj_close.append(line[AdjC])  
-		date.append(line[Month])
-	date.remove(date[Month]) 
-	adj_close.remove(adj_close[Month])
-	float_adj_close = [float(i) for i in adj_close] 
-	for i in float_adj_close:
-		if i > max:
-			max = i # finding the max price
-			the_date = date[count]
+		for line in x: #going over the file stream and making two lists for adj close and  date
+				adj_close.append(line[AdjC])  
+				date.append(line[Month])
+		date.remove(date[Month]) 
+		adj_close.remove(adj_close[Month])
+		float_adj_close = [float(i) for i in adj_close] 
+		for i in float_adj_close:
+				if i > max:
+				max = i # finding the max price
+				the_date = date[count]
 		count += 1	
 	
-	highest_list.append(the_date)
-	highest_list.append(max)
-	return highest_list # Making a list with the date and price
+		highest_list.append(the_date)
+		highest_list.append(max)
+		return highest_list # Making a list with the date and price
 
 
 def print_average(averagelist):
@@ -88,12 +88,12 @@ def print_average(averagelist):
 
 
 def print_highest(highest_list):
-	''' Prints the highest price and date with formatting '''
-	print("Highest price {:.2f} on day {}".format(round(float(highest_list[1]),2), highest_list[0]))
+		''' Prints the highest price and date with formatting '''
+		print("Highest price {:.2f} on day {}".format(round(float(highest_list[1]),2), highest_list[0]))
 
 
 def main():
-	''' Main program starts here ''' 
+		''' Main program starts here ''' 
     openfile = get_file()
     if openfile:
         
